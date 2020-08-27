@@ -1,0 +1,818 @@
+{
+    "test": "测试",
+    "confirm": "确定",
+    "cancel": "取消",
+    "customer": "客户",
+    "agent": "客服",
+    "search": "搜索",
+    "title": "标题",
+    "agentGroup": "客服组",
+    "agentAccepted": "受理客服",
+    "queue": "队列",
+    "online": "在线",
+    "busy": "忙碌",
+    "offline": "离线",
+    "onlineStatus": "在线状态",
+    "call": "通话",
+    "im": "对话",
+    "ticket": "工单",
+    "video": "视频",
+    "detail": "详情",
+    "save": "保存",
+    "submit": "提交",
+    "add": "增加",
+    "delete": "删除",
+    "back": "返回",
+    "needWrite": "请填写{text}",
+    "saveError": "保存失败",
+    "simpleError": "页面异常,请尝试刷新。并将问题反馈至Udesk",
+    "link": "链接",
+    "img": "图片",
+    "filter": "筛选",
+    "all": "所有",
+    "unit": "个",
+    "refresh": "刷新",
+    "noMoreContent": "没有更多内容",
+    "sort": "排序",
+    "remark": "备注",
+    "addCustonmSize": {
+        "formLabel": {
+            "type": "类型",
+            "labelName": "标签名称",
+            "remark": "备注",
+            "placeholder": "请输入",
+            "inputTip": "输入提示",
+            "helpTip": "帮助提示",
+            "interpretativeStatement": "解释说明",
+            "inputDefault": "默认输入",
+            "lengthLimit": "字数限制",
+            "promptObject": "提示对象",
+            "customer": "客户",
+            "customerService": "客服",
+            "verificationRules": "校验规则",
+            "requireItem": "必填项",
+            "layoutX": "强制一行",
+            "layoutY": "跟随布局"
+        },
+        "warning": {
+            "require": "必填",
+            "nolink": "不符合链接规范",
+            "maxLength": "输入不得超过{num}个字"
+        }
+    },
+    "label": {
+        "name": "姓名",
+        "addPhone": "添加电话",
+        "phone": "电话",
+        "message": "短信",
+        "company": "公司",
+        "email": "邮箱",
+        "copy": "复制",
+        "import": "导入",
+        "export": "导出",
+        "tag": "标签",
+        "description": "描述",
+        "category": "分类",
+        "order": "顺序",
+        "icon": "图标",
+        "cancel": "取消",
+        "useful_expression": "常用语",
+        "useful_link": "常用链接",
+        "question": "问题",
+        "attachment": "附件",
+        "preview": "预览",
+        "send": "发送",
+        "expand": "展开",
+        "use": "使用",
+        "collapse": "收起",
+        "input_keyword": "请输入关键词！",
+        "space": "空间",
+        "callRecord": "通话记录",
+        "imRecord": "对话记录",
+        "mailboxSuffix": "邮箱后缀",
+        "keyword": "关键词",
+        "source": "来源",
+        "block": "拉黑",
+        "cancelBlock": "取消拉黑",
+        "detail": "详情",
+        "ticket": "工单",
+        "owner": "负责人",
+        "ownerGroup": "负责组",
+        "all": "所有",
+        "preferences": "偏好设置",
+        "component": "组件",
+        "parallelHorizon": "平行视界",
+        "overallCoverage": "整体覆盖",
+        "coveringParallelHorizon": "覆盖平行视界",
+        "coverCommonArea": "覆盖平行视界普通区",
+        "read": "已读",
+        "unread": "未读",
+        "returnVisit": "回访计划",
+        "processed": "已处理",
+        "person": "人",
+        "col": "列",
+        "me": "我",
+        "system": "系统",
+        "refuse": "拒绝",
+        "accept": "接受",
+        "content": "内容",
+        "tip": "提示"
+    },
+    "udMerge": {
+        "merge": "合并",
+        "mergeCustomer": "客户合并",
+        "appointmentMergeCustomer": "预约客户合并",
+        "appointmentMerge": "预约合并",
+        "cancelReservation": "取消预约",
+        "currentCustomer": "当前客户:",
+        "targetCustomer": "目标客户:",
+        "typeNotMerge": "客户类型不支持合并，",
+        "learnMore": "了解详情",
+        "afterMergeCustomer": "客户合并后：",
+        "mergeCustomerHelpOne": "1. 合并客户仅支持邮箱和电话",
+        "mergeCustomerHelpTwo": "2. 将合并客户的所有工单、通话记录、客户字段都合并到主客户上",
+        "mergeCustomerHelpThree": "3. 合并客户将被删除",
+        "mergeing": "正在合并",
+        "selectTargetCustomer": "请选择目标客户",
+        "sameCustomer": "当前客户和目标客户相同",
+        "mergeFail": "合并失败,请联系管理员",
+        "mergeSuccess": "合并成功",
+        "appointmentMergeSuccess": "预约合并成功",
+        "appointmentMergeFail": "预约合并失败,请联系管理员",
+        "hasAppointment": "已预约对话结束后合并",
+        "afterMergeConversation": "对话结束后可合并  或者"
+    },
+    "tip": {
+        "elsewhereOnline": "客服帐号在其他地方上线,如重新上线,会迫使其下线!",
+        "systemMsg": "系统提示",
+        "copySuccess": "复制成功",
+        "mergeCustomer": "合并客户",
+        "copyFail": "复制失败",
+        "agOffline": "当前客服处于离线状态，无法发送消息",
+        "endCurrentVideoCall": "请结束当前视频通话",
+        "cannotCreateChat": "当前客服处于离线状态，无法发起会话!",
+        "error": {
+            "saveTry": "保存失败,请重试",
+            "requestError": "请求失败，请重试",
+            "operationError": "请求失败，请重试"
+        },
+        "success": {
+            "save": "保存成功"
+        }
+    },
+    "error": {
+        "emailError": "邮箱格式有误！",
+        "repeatEmailFail": "检测重复邮箱失败",
+        "nameEmpty": "姓名不能为空",
+        "requestFailed": "请求失败,请重试"
+    },
+    "uploader": {
+        "label": "上传附件",
+        "uploadImg": "上传图片",
+        "choiceImg": "选择图片",
+        "choiceFile": "选择文件",
+        "insertImg": "插入图片",
+        "imgSupportExt": "支持jpg、gif、 png类型",
+        "uploading": "正在上传",
+        "noFile": "未选择任何文件"
+    },
+    "page": {
+        "manage": {
+            "tree_select": {
+                "tag_title": "选项名称",
+                "tag_color": "标签颜色",
+                "default_expand_all": {
+                    "label": "展开",
+                    "true": "默认展开",
+                    "false": "默认收起"
+                },
+                "warning": {
+                    "require": "必填",
+                    "nolink": "不符合链接规范"
+                },
+                "parent_checkable": {
+                    "label": "分类批量选择",
+                    "true": "支持",
+                    "false": "不支持"
+                },
+                "select_options": {
+                    "label": "树形选项设置"
+                },
+                "category_config": "分类设置"
+            },
+            "label": {
+                "import": "导入",
+                "export": "导出"
+            },
+            "custom-field": {
+                "link": {
+                    "title": "链接"
+                },
+                "radio": {
+                    "title": "单选"
+                },
+                "datetime": {
+                    "title": "日期时间"
+                },
+                "text": {
+                    "title": "单行文本"
+                },
+                "date": {
+                    "title": "日期"
+                },
+                "time": {
+                    "title": "时间"
+                },
+                "checkbox": {
+                    "title": "多选"
+                },
+                "radio_droplist": {
+                    "title": "下拉单选"
+                },
+                "checkbox_droplist": {
+                    "title": "下拉多选"
+                },
+                "numeric": {
+                    "title": "数值"
+                },
+                "calculate": {
+                    "title": "计算字段"
+                },
+                "chained_droplist": {
+                    "title": "级联"
+                },
+                "area_text": {
+                    "title": "多行文本"
+                },
+                "number": {
+                    "title": "正整数"
+                },
+                "tag_tree": {
+                    "title": "标签树"
+                },
+                "location": {
+                    "title": "地理位置"
+                }
+            }
+        },
+        "im": {
+            "tabs": {
+                "tagName": {
+                    "-1": "客户信息",
+                    "-2": "业务记录",
+                    "-3": "联系记录",
+                    "-4": "知识库",
+                    "-8": "新建工单"
+                }
+            },
+            "ticket": {
+                "createTicket": "新建工单",
+                "createCustomer": "新建客户",
+                "createOrg": "新建公司",
+                "subject": "主题",
+                "content": "描述",
+                "customer": "客户",
+                "receiver": "受理人",
+                "follower": "关注人",
+                "status": "状态",
+                "tags": "标签",
+                "priority": "优先级",
+                "uploadFile": "上传附件",
+                "uploaderTip": "（单个附件大小不可超过{single},全部附件大小不可超过{total}）",
+                "createTicketByIM": "客服[{0}]通过IM创建了工单",
+                "createSuccess": "工单{0}创建成功",
+                "ticketTemplate": "工单模板",
+                "nick_name": "客户名称",
+                "level": "等级",
+                "email": "邮箱",
+                "description": "描述",
+                "organizations": "公司",
+                "phone": "电话",
+                "lang": "语言",
+                "owner_group_name": "负责组",
+                "owner_name": "负责人",
+                "organization_name": "公司名称",
+                "org_email_suffix": "公司邮箱后缀",
+                "domains": "公司域名",
+                "helpBlock": "多个域名可用“;”或“,”隔开。",
+                "descTip": "公司相关信息，如地址、网站、备注等。",
+                "normal": "普通",
+                "emailSuffixHelpText": "客户主邮箱的后缀是企业邮箱后缀时，将被自动添加到该公司",
+                "addCompany": "新建公司",
+                "choiceFollower": "选择关注者",
+                "forCustomerDesc": "对该客户的描述...",
+                "keywordQueryCompany": "输入关键字查询公司",
+                "warning": {
+                    "exceedsTotalSize": "文件总大小 {0} 超过限制大小 {1}",
+                    "exceedsSize": "文件 {0} 超过限制大小 {1}",
+                    "repeat": "此电话与已有客户{1}重复"
+                }
+            },
+            "imContact": {
+                "allAgent": "全部客服",
+                "subject": "主题",
+                "desc": "描述",
+                "status": "状态",
+                "priority": "优先级",
+                "assigneeName": "受理人",
+                "call": "通话",
+                "type": "类型",
+                "assigneeAgent": "受理客服",
+                "callResult": "通话结果",
+                "callDuration": "通话时长",
+                "noFeed": "暂无联系记录"
+            },
+            "km": {
+                "scope": {
+                    "public": "公共",
+                    "personal": "个人",
+                    "robot": "机器人"
+                },
+                "no_result": "没有找到相关{{name}}！",
+                "useful_expression": {
+                    "title": "常用语"
+                },
+                "useful_link": {
+                    "title": "常用链接"
+                },
+                "question": {
+                    "title": "问题库",
+                    "all": "全部问题",
+                    "no_catalog": "未分类"
+                },
+                "attachment": {
+                    "title": "附件库"
+                },
+                "km": {
+                    "title": "KM",
+                    "all_article": "全部文章",
+                    "all_space": "全部空间"
+                }
+            },
+            "record": {
+                "imLogRecords": "消息记录",
+                "callNum": "拨打电话",
+                "pleaseCall": "请拨打",
+                "searchRes": "已搜到{0}条消息记录",
+                "searchNearby": "查看前后文",
+                "today": "今天",
+                "yesterday": "昨天",
+                "recentSevenDays": "最近7天",
+                "recentThirtyDays": "最近30天",
+                "currentMonth": "本月",
+                "lastMonth": "上个月",
+                "requestError": "请求失败,请重试",
+                "tip": {
+                    "noAnswer": "系统发送未响应超时提醒",
+                    "customerOvertime": "客户超时未响应，系统关闭对话",
+                    "agentOvertime": "客服{agentName}超时未应答",
+                    "agentCloseChat": "客服{agentName}关闭会话",
+                    "chatTransfer": "客服转接会话",
+                    "withdrawed": "已撤回",
+                    "customerCloseChat": "客户关闭会话"
+                }
+            },
+            "customerInfo": {
+                "customer": {
+                    "add": "新建公司",
+                    "cellphones": "电话",
+                    "description": "描述",
+                    "email": "邮箱",
+                    "info": "客户信息",
+                    "is_blocked": "是否在黑名单",
+                    "lang": "语言",
+                    "level": "等级",
+                    "nick_name": "客户姓名",
+                    "org_info": "公司信息",
+                    "organization_name": "公司",
+                    "organizations": "公司",
+                    "owner_group_name": "负责组",
+                    "owner_name": "负责人",
+                    "phone": "电话",
+                    "signature": "标签",
+                    "tags": "标签",
+                    "rich_tags": "标签",
+                    "customer_questionnaire_id": "问卷调查",
+                    "enum": {
+                        "level": {
+                            "vip": "VIP",
+                            "normal": "普通",
+                            "cancelvip": "取消vip",
+                            "settingvip": "设为vip"
+                        }
+                    }
+                },
+                "device": {
+                    "consultObj": "咨询对象",
+                    "title": "访问信息",
+                    "DialogueID": "对话ID",
+                    "menu": "导航菜单",
+                    "searchType": "来源方式",
+                    "os": "系统",
+                    "browser": "浏览器",
+                    "curUrl": "对话发起页",
+                    "preUrl": "对话着陆页",
+                    "phoneModal": "设备型号",
+                    "phoneVersion": "系统版本号",
+                    "appName": "应用名称",
+                    "netWorkStatus": "网络状态",
+                    "carrier": "运营商",
+                    "scaleScreen": "分辨率",
+                    "customChannel": "自定义渠道信息",
+                    "IP": "IP地址",
+                    "queueList": "排队队列",
+                    "web_plugin": "来源插件",
+                    "visitUrl": "访问着陆页",
+                    "ipLocation": "IP所在地",
+                    "chatTimes": "当日对话",
+                    "invitationEvaluateTime": "客服邀评次数",
+                    "dialogOpenPage": "对话开启页",
+                    "lastMsgSendPeople": "最后消息发送方",
+                    "chatSend": "对话发起人",
+                    "visitorSend": "访客邀请函"
+                },
+                "organization": {
+                    "name": "公司名称",
+                    "org_email_suffix": "公司邮箱后缀",
+                    "domains": "公司域名",
+                    "description": "描述",
+                    "companyDetail": "公司详情",
+                    "validateFail": "验证失败: 名称不能为空字符",
+                    "failedToGetData": "请求公司数据失败"
+                }
+            },
+            "assist": {
+                "openInNewWindow": "在新窗口中打开"
+            },
+            "visit": {
+                "title": "回访计划",
+                "add": "新增计划",
+                "history": "历史计划",
+                "time": "计划时间",
+                "result": "回访结果",
+                "change": "改期",
+                "timeout": "有回访计划已到时间，请处理",
+                "replyNow": "立即回复",
+                "callNow": "立即呼叫",
+                "imNoticeTitle": "IM有一条回访计划到期",
+                "ccNoticeTitle": "呼叫中心有一条回访计划到期",
+                "callout_task": "外呼任务",
+                "choiceTime": "请选择提醒时间",
+                "alertTimeTip": "提醒时间必须晚于当前时间！",
+                "scheduleCreateSuccess": "回访计划创建成功！"
+            },
+            "note": {
+                "tip": "您还有 必填信息 没有填写!"
+            },
+            "log": {
+                "noSearchResult": "没有找到相关结果！",
+                "videoAddress": "视频地址:",
+                "download": "下载",
+                "preview": "预览",
+                "weixin_mini": "小程序",
+                "unread": "未读",
+                "read": "已读",
+                "off_sending": "离线发送",
+                "arrive": "已送达",
+                "off_arrive": "离线送达",
+                "fail": "发送失败",
+                "rollback": "已撤回",
+                "reEdit": "重新编辑",
+                "withdraw": "撤回",
+                "addToCustomerInfo": "添加到客户信息中",
+                "addToKnowledgeBase": "添加到知识库",
+                "searchTextInImRecord": "搜索对话记录",
+                "noice2text": "语音转文字",
+                "addMsgToKmRobot": "添加到机器人知识库",
+                "overflowTwoMin": "发送时间超过2分钟的消息，不能被撤回",
+                "chatShuted": "该会话已关闭",
+                "questionName": "问题名称",
+                "classification": "分类",
+                "answer": "答案",
+                "pureText": "纯文本",
+                "richText": "富文本",
+                "validityPeriod": "问题有效期",
+                "addToUseful": "添加到常用语",
+                "problemsBase": "问题库",
+                "usefulsTitle": "常用语",
+                "addToUsefulLinks": "添加到常用链接",
+                "address": "地址",
+                "name": "名称",
+                "addToAttachment": "添加到附件库",
+                "addToRobot": "添加到机器人问题库",
+                "content": "内容",
+                "prohibitionOfRepeatedAdditions": "该附件已存在，请不要重复添加"
+            },
+            "imChats": {
+                "new_msg": "任意一方最新消息",
+                "wait_time": "等待时长最长",
+                "create_time": "最早开始对话",
+                "last_create_time": "最晚开始对话",
+                "customer_new_msg": "客户最新消息",
+                "imChatTabs": {
+                    "mine": "我的",
+                    "leave": "留言",
+                    "colleague": "同事",
+                    "queue": "排队",
+                    "visitor": "访客"
+                },
+                "imChatMsg": {
+                    "structureMsg": "结构化消息",
+                    "linkMsg": "链接消息"
+                },
+                "imLeave": {
+                    "initiateDialogue": "发起对话",
+                    "cannotGetList": "当前客服不在线，无法获取当前客服列表",
+                    "overflowMaxNum": "一次批量发起会话只能选择20个"
+                },
+                "imChatVisitor": {
+                    "visitorsRealTime": "网站访客实时查看",
+                    "visitorsRealTimeTip": "您可以实时看到当前访问网站的访客信息，并可主动邀请或者直接与他们进行对话"
+                },
+                "imChatCommon": {
+                    "imChatSelector": {
+                        "select": "选择",
+                        "cancleSelect": "取消选择",
+                        "leaveMsgQueue": "留言队列：",
+                        "platfrom": "渠道："
+                    },
+                    "leaveChatList": {
+                        "leaveChatFilter": {
+                            "thisMonth": "本月",
+                            "searchPlaceholder": "输入关键字查询"
+                        }
+                    }
+                },
+                "imColleague": {
+                    "cancleFilter": "取消筛选",
+                    "placeholderText": "输入客服名称搜索",
+                    "notice": {
+                        "notice": "提醒",
+                        "agentSentiment": "客服负面情绪",
+                        "customerSentiment": "客户负面情绪",
+                        "agentSensitiveWords": "客服敏感词",
+                        "customerSensitiveWords": "客户敏感词",
+                        "responseTimeout": "响应超时",
+                        "sessionTimeout": "会话超时",
+                        "satisfaction": "满意度",
+                        "operatorNotification": "桌面提醒"
+                    }
+                },
+                "imQueue": {
+                    "customerRequire": "客户为必选项",
+                    "cannotGetList": "当前客服不在线，无法获取当前客服列表",
+                    "busy": "客服忙碌中,不允许拉取",
+                    "success": "成功",
+                    "unit": "个",
+                    "fail": "失败",
+                    "selectAgent": "请选择客服",
+                    "cancleFilter": "取消筛选",
+                    "assignSuccess": "客户分配成功",
+                    "filter": {
+                        "selectQueue": "请选择队列",
+                        "customerLevel": "客户等级"
+                    },
+                    "batch": {
+                        "batch": "批量",
+                        "allCustomer": "全部客户",
+                        "add": "添加",
+                        "transfer": "转给"
+                    }
+                },
+                "imMine": {
+                    "initiateDialogue": "发起对话"
+                }
+            },
+            "imVisitors": {
+                "onlineVisitor": "在线访客",
+                "text": "访客",
+                "trace": "轨迹",
+                "current": "现在",
+                "onlineAgent": "在线客服",
+                "consulting": "当前有客服人员在线，立刻点击咨询吧。",
+                "latestAccess": "最新接入",
+                "accessOrder": "接入顺序",
+                "visitorDescription": "访客描述",
+                "dialogue": "对话",
+                "invitation": "邀请",
+                "pending": "待同意",
+                "invitationAgain": "再邀",
+                "conversationing": "对话中",
+                "forceChatIng": "邀请会话中",
+                "connecting": "连接中",
+                "leaved": "已离开",
+                "transfer_agent": "转人工",
+                "columns": {
+                    "name": "访客",
+                    "desc": "访客描述",
+                    "visitorNo": "访客ID",
+                    "operation": "操作",
+                    "looking": "正在访问",
+                    "device": "设备",
+                    "residenceTime": "停留时间",
+                    "source": "来源",
+                    "keyword": "关键词",
+                    "sourceUrl": "来源URL",
+                    "vistNum": "来访次数",
+                    "vistPageNum": "访问页数",
+                    "inviteNum": "邀请次数",
+                    "askNum": "主动会话次数",
+                    "sessionNum": "接入对话次数",
+                    "isRobot": "是否与机器人聊天"
+                }
+            },
+            "vcall": {
+                "audio": "语音",
+                "phoneticAuditions": "语音试听",
+                "audioChat": "语音聊天",
+                "video": "视频",
+                "videoChat": "视频聊天",
+                "videoRecords": "视频记录",
+                "shareScreen": "屏幕分享",
+                "to": "向",
+                "danger": "拒绝",
+                "ringing_desc": "发起{type}通话",
+                "chat_title": "正在和 {name} {type}通话",
+                "hangup": "挂断",
+                "videoShot": "视频拍照"
+            },
+            "remote": {
+                "title": "远程控制",
+                "controlledRemoteStatus": "被控端在线状态",
+                "startRemote": "开始远程",
+                "downloadRemote": "下载主控端",
+                "tipContentOne": "远程服务需安装主控端插件，请下载并安装",
+                "tipContentTwo": "邀请发起中，等待客户接受",
+                "tipContentThree": "正在远程中,请关闭当前远程",
+                "tipContentFour": "参数错误，请取消后重新邀请",
+                "tipContentFive": "客户接受邀请，等待客户下载并启用远程被控",
+                "tipContentSix": "被控端已上线，请开始远程服务吧",
+                "tipContentSeven": "控制断开，请再次邀请",
+                "tipContentEight": "客户已拒绝邀请",
+                "invite": "发起邀请",
+                "cancel": "取消邀请",
+                "againInvite": "再次邀请"
+            },
+            "preference": {
+                "title": "IM工作台偏好设置",
+                "titleH3": "回复输入自动建议",
+                "expression_public": "常用语",
+                "link_public": "常用链接",
+                "question_public": "问题库",
+                "attachment_public": "附件库",
+                "robot_km_public": "KM",
+                "expression_personal": "常用语",
+                "link_personal": "常用链接",
+                "question_personal": "问题库",
+                "attachment_personal": "附件库",
+                "autosuggest": "自动建议",
+                "AItranslate": "AI翻译",
+                "isTranslate": "接受消息实时翻译",
+                "translateTo": "翻译为",
+                "langs": "支持语种"
+            },
+            "imMessages": {
+                "moreThan24H": "超过24h",
+                "notifyMsg": "您有一条新消息！",
+                "newMsg": "新消息",
+                "showHistory": "查看历史对话",
+                "showMoreHistory": "查看更多历史对话",
+                "noHistory": "无历史对话",
+                "chatLock": "对话已锁定，不会自动结束",
+                "lockTip": "如需长时间等待用户响应，请将对话锁定，对话将不会自动结束",
+                "assistance": "对话协助",
+                "robotAgent": "机器人客服",
+                "chatShuted": "该会话已关闭",
+                "duplicatePhone": "号码重复了",
+                "duplicateEmail": "邮箱重复了",
+                "maxCustomer": "最大接待人数已满，无法进行新的会话，请先关闭其他会话",
+                "mergeCustomer": "会话结束后可合并客户",
+                "lockTheDialogueFailureTwo": "锁定对话失败:没有im_sub_session_id!",
+                "lockTheDialogueFailure": "锁定对话失败:",
+                "lockSession": "锁定会话",
+                "unlockSession": "解锁会话",
+                "selectChat": "请选择一个会话！",
+                "systemNotice": "系统通知",
+                "imMessageUtil": {
+                    "fromRobot": "机器人转接对话",
+                    "chatShuted": "该会话已关闭"
+                },
+                "transfer": {
+                    "transfer": "转移",
+                    "title": "对话转移",
+                    "toAgent": "转移至客服",
+                    "toGroup": "转移至客服组",
+                    "noTransferableAgent": "当前没有可转接的客服",
+                    "noTransferableAgentGroup": "当前没有可转接的客服组",
+                    "from": "来自",
+                    "msgTip": "您有新的转接对话，请处理",
+                    "success": "转接成功"
+                }
+            },
+            "status": {
+                "online": "在线",
+                "busy": "忙碌",
+                "offline": "离线"
+            },
+            "msg": {
+                "start": "对话开始",
+                "delivered": "已送达",
+                "sentOffline": "离线发送",
+                "receiveOffline": "离线送达",
+                "sendFail": "发送失败",
+                "reSend": "重新发送",
+                "rollback": "已撤回",
+                "customerCloseChat": "用户已结束对话",
+                "closeChat": "关闭对话",
+                "read": "已读",
+                "unread": "未读"
+            },
+            "monitor": {
+                "title": "IM监控",
+                "sessionMonitor": {
+                    "title": "对话监控",
+                    "agentSentiment": "客服情绪",
+                    "customerSentiment": "客户情绪",
+                    "sensitiveWords": "敏感词",
+                    "responseTimedOut": "响应超时",
+                    "sessionTimedOut": "对话超时",
+                    "satisfactionAlert": "满意度警报",
+                    "alarmItems": "报警项",
+                    "alermContent": "报警项目",
+                    "status": "状态",
+                    "alertTips": "报警对话, 共计",
+                    "agent_sensitive_word": "客服敏感词对话提醒",
+                    "customer_sensitive_word": "客户敏感词对话提醒",
+                    "agent_sentiment_word": "客服负面情绪对话提醒",
+                    "customer_sentiment_word": "客户负面情绪对话提醒",
+                    "response_timeout": "超时响应对话提醒",
+                    "sessions_timeout": "会话超时对话提醒",
+                    "survey": "满意度评分对话提醒",
+                    "coll_find": "同事对话中发现",
+                    "queueList": "排队队列",
+                    "searchQueueNameTip": "请输入排队队列名称"
+                }
+            }
+        }
+    },
+    "enum": {
+        "im_log": {
+            "send_status": {
+                "off_sending": "离线发送",
+                "arrive": "已送达",
+                "off_arrive": "离线送达",
+                "fail": "发送失败",
+                "rollback": "已撤回"
+            }
+        },
+        "platform": {
+            "wechat": "微信",
+            "wechatMini": "小程序",
+            "weibo": "微博",
+            "qywx": "企业微信",
+            "mchat": "多商户",
+            "baidu": "百度"
+        }
+    },
+    "components": {
+        "imChatPanel": {
+            "overview": "点击预览排队消息",
+            "image": "图片",
+            "file": "文件",
+            "productMsg": "商品消息",
+            "audio": "语音",
+            "video": "视频",
+            "structureMsg": "结构化消息",
+            "location": "地理位置",
+            "message": "消息"
+        },
+        "rangePicker": {
+            "today": "今天",
+            "yesterday": "昨天",
+            "lastSevenDay": "最近七天",
+            "lastThirtyDay": "最近30天",
+            "thisMonth": "本月",
+            "lastMonth": "上个月"
+        },
+        "customerDropDown": {
+            "customer": "客户"
+        },
+        "customerAutoComplete": {
+            "selectCustomer": "请选择客户"
+        }
+    },
+    "enums": {
+        "customerLevel": {
+            "vip": "VIP",
+            "normal": "普通"
+        },
+        "queueTypes": {
+            "company": "公司"
+        },
+        "agentStatus": {
+            "online": "在线",
+            "busy": "忙碌",
+            "offline": "离线"
+        }
+    }
+}

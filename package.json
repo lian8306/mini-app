@@ -1,0 +1,22 @@
+{
+  "name": "udesk-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "locale-synchronization.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lian8306/udesk-tools.git"
+  },
+  "author": "C盘先生",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lian8306/udesk-tools/issues"
+  },
+  "homepage": "https://github.com/lian8306/udesk-tools#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}
