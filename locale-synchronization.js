@@ -1,10 +1,18 @@
 const fs = require("fs-extra");
 
+//待处理文件路径
 const dir = "./locales";
+//输出文件路径
 const outputDir = "./output";
+// 待处理语言中文路径
 const basicFile = `${dir}/zh-cn.json`;
+// 参考中文路径
+const basicZhFile = `${dir}/source/zh-cn.json`;
+// 待处理语言文件
 const pendingFile = `${dir}/ja.json`;
+// 参考语言文件
 const sourceFile = `${dir}/source/ja.json`;
+// 输出文件名称
 const outputPendingFile = `${outputDir}/ja.json`;
 
 let pendingTranslateKeys = [];
@@ -13,10 +21,11 @@ let parentKey = [];
 let basicFileJson = fs.readJsonSync(basicFile);
 let pendingFileJson = fs.readJsonSync(pendingFile);
 let sourceFileJson = fs.readJsonSync(sourceFile);
+let basicZhFileJson = fs.readJsonSync(basicZhFile);
 
 compareJson(basicFileJson, pendingFileJson, parentKey, false);
-copySourceValue(pendingFileJson, sourceFileJson, pendingTranslateKeys);
-console.log("pendingFileJson", pendingFileJson);
+copySourceValue(pendingFileJson, basicZhFileJson, basicFileJson, sourceFileJson, pendingTranslateKeys);
+// console.log("pendingFileJson", pendingFileJson);
 
 fs.outputJsonSync(outputPendingFile, pendingFileJson);
 
@@ -74,57 +83,135 @@ function getKeyValue(value, keys) {
     }, value);
 }
 
-function getValues(sourceFile, lastKey, prevLastKey, prevKey) {
+function getTextParentIds(basicZhFileJson, text, parentIds) {
     let result = [];
-    for (var i in sourceFile) {
-        // if (lastKey === "searchQueueNameTip") {
-        //     console.log("searchQueueNameTip", i);
-        // }
-        if (i === lastKey) {
-
-            if (typeof sourceFile[i] === "string") {
-                if (result.indexOf(sourceFile[i]) == -1) {
-                    if (!result.length) {
-                        result.push(sourceFile[i]);
-                    } else if (prevKey && prevLastKey && prevKey === prevLastKey) {
-                        result.push(sourceFile[i]);
-                    }
-                }
-            }
-        } else {
-            if (typeof sourceFile[i] === "object") {
-                // if (lastKey === "email") {
-                //     console.log("email2", prevLastKey, prevKey)
-                // }
-                let values = getValues(sourceFile[i], lastKey, prevLastKey, i);
-                if (!result.length) {
-                    result.push(...values);
-                } else if (i && prevLastKey && i === prevLastKey) {
-                    console.log("values",values)
-                    result.push(...values);
-                } else {
-                    result.push("@#@");
-                }
-                result = [...new Set(result)];
+    for (var i in basicZhFileJson) {
+        // result = [...parentIds] || [];
+        let value = basicZhFileJson[i];
+        if (text === value && !result.length) {
+            // console.log(text,value,i)
+            let newIds = [...parentIds, i].join(".");
+            result.push(newIds);
+        } else if (typeof value === "object") {
+            // let oldIds = [...result, i].join(".");
+            let ids = getTextParentIds(value, text, [...parentIds, i]);
+            if (ids && ids.length) {
+                // console.log("ids", ids,text)
+                // result = [i, ...ids];
+                result.push(ids.join("."));
             }
         }
     }
     return result;
 }
 
-function copySourceValue(pendingFileJson, sourceFile, pendingTranslateKeys) {
+function getValues(basicZhFileJson, sourceFileJson, text) {
+    let parentIds = getTextParentIds(basicZhFileJson, text, []);
+    if (!parentIds || !parentIds.length) {
+        return "TODO 手动查找"
+    } else {
+        let texts = parentIds.reduce((prevTexts, id) => {
+            let ids = id.split(".");
+            prevTexts.push(getKeyValue(sourceFileJson, ids));
+            return prevTexts;
+        }, []);
+        texts = texts.filter(Boolean);
+        let uniqueText = [...new Set(texts)];
+        console.log("texts", uniqueText);
+        if (texts.length) {
+            return uniqueText.join("@#@");
+        } else {
+            return "TODO 手动查找"
+        }
+    }
+    // console.log("parentIds", parentIds, text);
+
+    // for (var i in sourceFile) {
+    //     if (i === lastKey) {
+    //         if (typeof sourceFile[i] === "string") {
+    //             if (result.indexOf(sourceFile[i]) == -1) {
+    //                 if (!result.length) {
+    //                     result.push(sourceFile[i]);
+    //                 } else if (prevKey && prevLastKey && prevKey === prevLastKey) {
+    //                     result.push(sourceFile[i]);
+    //                 }
+    //             }
+    //         }
+    //     } else {
+    //         if (typeof sourceFile[i] === "object") {
+    //             let values = getValues(sourceFile[i], lastKey, prevLastKey, i);
+    //             if (!result.length) {
+    //                 result.push(...values);
+    //             } else if (i && prevLastKey && i === prevLastKey) {
+    //                 console.log("values", values)
+    //                 result.push(...values);
+    //             } else if (values && values.length) {
+    //                 console.log("values", values)
+    //                 result.push("@#@");
+    //             }
+    //             result = [...new Set(result)];
+    //         }
+    //     }
+    // }
+    // return result;
+}
+
+function copySourceValue(pendingFileJson, basicZhFileJson, basicFileJson, sourceFileJson, pendingTranslateKeys) {
     if (pendingTranslateKeys) {
         pendingTranslateKeys.forEach(keys => {
             keys = keys.split(".");
+            let zhKey = [...keys];
             let lastKey = keys.pop();
             let obj = getKeyValue(pendingFileJson, keys);
-            if (typeof obj === "object" && typeof obj[lastKey] === "string") {
-                let values = getValues(sourceFile, lastKey, keys[keys.length - 1]);
-                // console.log("obj", lastKey, values)
-                if (values) {
-                    obj[lastKey] = values.join("@#@");
+            let zhText = getKeyValue(basicFileJson, zhKey);
+            if (typeof obj === "object" && typeof obj[lastKey] === "string" && zhText) {
+
+                let value = getValues(basicZhFileJson, sourceFileJson, zhText);
+                // let values = getValues(sourceFile, lastKey, keys[keys.length - 1]);
+                if (value) {
+                    obj[lastKey] = value;
                 }
             }
         })
     }
 }
+
+
+// function getValues(sourceFile, lastKey, prevLastKey, prevKey) {
+//     let result = [];
+//     for (var i in sourceFile) {
+//         // if (lastKey === "searchQueueNameTip") {
+//         //     console.log("searchQueueNameTip", i);
+//         // }
+//         if (i === lastKey) {
+
+//             if (typeof sourceFile[i] === "string") {
+//                 if (result.indexOf(sourceFile[i]) == -1) {
+//                     if (!result.length) {
+//                         result.push(sourceFile[i]);
+//                     } else if (prevKey && prevLastKey && prevKey === prevLastKey) {
+//                         result.push(sourceFile[i]);
+//                     }
+//                 }
+//             }
+//         } else {
+//             if (typeof sourceFile[i] === "object") {
+//                 // if (lastKey === "email") {
+//                 //     console.log("email2", prevLastKey, prevKey)
+//                 // }
+//                 let values = getValues(sourceFile[i], lastKey, prevLastKey, i);
+//                 if (!result.length) {
+//                     result.push(...values);
+//                 } else if (i && prevLastKey && i === prevLastKey) {
+//                     console.log("values", values)
+//                     result.push(...values);
+//                 } else if (values && values.length) {
+//                     console.log("values", values)
+//                     result.push("@#@");
+//                 }
+//                 result = [...new Set(result)];
+//             }
+//         }
+//     }
+//     return result;
+// }
