@@ -9,11 +9,11 @@ const basicFile = `${dir}/zh-cn.json`;
 // 参考中文路径
 const basicZhFile = `${dir}/source/zh-cn.json`;
 // 待处理语言文件
-const pendingFile = `${dir}/ja.json`;
+const pendingFile = `${dir}/en-us.json`;
 // 参考语言文件
-const sourceFile = `${dir}/source/ja.json`;
+const sourceFile = `${dir}/source/en-us.json`;
 // 输出文件名称
-const outputPendingFile = `${outputDir}/ja.json`;
+const outputPendingFile = `${outputDir}/en-us.json`;
 
 let pendingTranslateKeys = [];
 let parentKey = [];
@@ -105,10 +105,10 @@ function getTextParentIds(basicZhFileJson, text, parentIds) {
     return result;
 }
 
-function getValues(basicZhFileJson, sourceFileJson, text) {
+function getValues(basicZhFileJson, basicFileJson, sourceFileJson, text) {
     let parentIds = getTextParentIds(basicZhFileJson, text, []);
     if (!parentIds || !parentIds.length) {
-        return "TODO 手动查找"
+        return text;
     } else {
         let texts = parentIds.reduce((prevTexts, id) => {
             let ids = id.split(".");
@@ -117,11 +117,19 @@ function getValues(basicZhFileJson, sourceFileJson, text) {
         }, []);
         texts = texts.filter(Boolean);
         let uniqueText = [...new Set(texts)];
-        console.log("texts", uniqueText);
         if (texts.length) {
             return uniqueText.join("@#@");
         } else {
-            return "TODO 手动查找"
+            return text;
+            // let zhTexts = parentIds.reduce((prevTexts, id) => {
+            //     let ids = id.split(".");
+            //     prevTexts.push(getKeyValue(basicFileJson, ids));
+            //     return prevTexts;
+            // }, []);
+            // zhTexts = zhTexts.filter(Boolean);
+            // let uniqueText = [...new Set(zhTexts)];
+            // return uniqueText.join("@#@");
+            // return "TODO 手动查找"
         }
     }
     // console.log("parentIds", parentIds, text);
@@ -166,7 +174,7 @@ function copySourceValue(pendingFileJson, basicZhFileJson, basicFileJson, source
             let zhText = getKeyValue(basicFileJson, zhKey);
             if (typeof obj === "object" && typeof obj[lastKey] === "string" && zhText) {
 
-                let value = getValues(basicZhFileJson, sourceFileJson, zhText);
+                let value = getValues(basicZhFileJson, basicFileJson, sourceFileJson, zhText);
                 // let values = getValues(sourceFile, lastKey, keys[keys.length - 1]);
                 if (value) {
                     obj[lastKey] = value;
